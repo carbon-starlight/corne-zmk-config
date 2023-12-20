@@ -20,4 +20,3 @@
 include:
   - board: nrfmicro_13
     shield: [ "corne_left", "corne_right" ]
-    name: [ "Corne" ]
