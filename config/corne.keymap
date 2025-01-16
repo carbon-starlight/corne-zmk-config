@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
@@ -55,10 +56,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp GRAVE  &kp Q            &kp W            &kp F              &kp P                &kp G         &kp J      &kp L         &kp U               &kp Y             &kp SEMICOLON     &kp LEFT_BRACKET
+&kp GRAVE  &kp Q            &kp W            &kp F              &kp P                &kp G         &kp J      &kp L         &kp U               &kp Y             &kp SEMICOLON     &kp LGUI
 &kp TAB    &hmr LEFT_GUI A  &hmr LEFT_ALT R  &hmr LEFT_SHIFT S  &hmr LEFT_CONTROL T  &kp D         &kp H      &hml RCTRL N  &hml RIGHT_SHIFT E  &hml RIGHT_ALT I  &hml RIGHT_GUI O  &kp SQT
 &kp CAPS   &kp Z            &kp X            &kp C              &kp V                &kp B         &kp K      &kp M         &kp COMMA           &kp DOT           &kp FSLH          &caps_word
-                                             &tog 5             &lt 1 LEFT_GUI       &kp RETURN    &kp SPACE  &mo 2         &kp BACKSPACE
+                                             &tog 5             &mo 1                &kp RETURN    &kp SPACE  &mo 2         &kp BACKSPACE
             >;
         };
 
@@ -70,10 +71,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TILDE  &kp EXCL             &kp LEFT_BRACE                  &kp EQUAL              &kp RIGHT_BRACE                      &kp PRCNT         &kp PAGE_UP    &kp HOME         &kp UP_ARROW  &kp END          &kp DELETE      &kp ESCAPE
-&trans     &hmr LEFT_GUI MINUS  &hmr LEFT_ALT LEFT_PARENTHESIS  &hmr LEFT_SHIFT MINUS  &hmr LEFT_CONTROL RIGHT_PARENTHESIS  &kp UNDERSCORE    &kp PAGE_DOWN  &kp LEFT         &kp DOWN      &kp RIGHT        &kp BACKSPACE   &kp K_CONTEXT_MENU
-&trans     &trans               &kp LEFT_BRACKET                &kp UNDERSCORE         &kp RIGHT_BRACKET                    &kp MINUS         &kp INSERT     &kp PRINTSCREEN  &kp CAPSLOCK  &kp PAUSE_BREAK  &kp SCROLLLOCK  &kp SYSREQ
-                                                                &trans                 &trans                               &trans            &trans         &trans           &trans
+&kp TILDE  &kp EXCL             &kp LEFT_BRACE                  &kp EQUAL              &kp RIGHT_BRACE                      &kp PRCNT     &kp PAGE_UP    &kp HOME         &kp UP_ARROW  &kp END          &kp DELETE      &kp ESCAPE
+&trans     &hmr LEFT_GUI MINUS  &hmr LEFT_ALT LEFT_PARENTHESIS  &hmr LEFT_SHIFT MINUS  &hmr LEFT_CONTROL RIGHT_PARENTHESIS  &bl BL_TOG    &kp PAGE_DOWN  &kp LEFT         &kp DOWN      &kp RIGHT        &kp BACKSPACE   &kp K_CONTEXT_MENU
+&trans     &trans               &kp LEFT_BRACKET                &kp UNDERSCORE         &kp RIGHT_BRACKET                    &trans        &kp INSERT     &kp PRINTSCREEN  &kp CAPSLOCK  &kp PAUSE_BREAK  &kp SCROLLLOCK  &kp SYSREQ
+                                                                &trans                 &trans                               &trans        &trans         &trans           &trans
             >;
         };
 
@@ -85,10 +86,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &trans  &kp LEFT_PARENTHESIS  &lt 4 STAR   &kp AMPERSAND  &kp SPACE    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp DOT       &kp CARET
-&trans  &trans  &kp CARET             &kp PERCENT  &kp DOLLAR     &kp SPACE    &kp PLUS      &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp NUMBER_0  &kp SLASH
-&trans  &trans  &kp HASH              &kp AT       &kp EXCL       &kp SPACE    &kp MINUS     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER     &kp KP_NUMLOCK
-                                      &trans       &trans         &trans       &kp N0        &trans        &kp DELETE
+&trans  &trans       &kp LEFT_PARENTHESIS  &lt 4 STAR               &kp AMPERSAND             &kp SPACE    &kp ASTERISK  &kp N7        &kp N8        &kp N9        &kp DOT       &kp CARET
+&trans  &hmr RGUI A  &hmr CARET LEFT_ALT   &hmr LEFT_SHIFT PERCENT  &hmr LEFT_CONTROL DOLLAR  &kp SPACE    &kp PLUS      &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp NUMBER_0  &kp SLASH
+&trans  &trans       &kp HASH              &kp AT                   &kp EXCL                  &kp SPACE    &kp MINUS     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER     &kp KP_NUMLOCK
+                                           &trans                   &trans                    &trans       &kp N0        &trans        &kp DELETE
             >;
         };
 
@@ -103,10 +104,10 @@
 
         Function {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans   &kp F7   &kp F8   &kp F9  &kp F12  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans   &kp F4   &kp F5   &kp F6  &kp F10  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans    &trans   &kp F1   &kp F2   &kp F3  &kp F11  &trans
-                        &trans  &trans  &trans    &kp F10  &kp F11  &kp F12
+&trans  &trans    &trans         &trans               &trans                 &trans    &trans   &kp F7   &kp F8   &kp F9  &kp F12  &trans
+&trans  &kp LGUI  &hmr RALT F16  &hmr LEFT_SHIFT F15  &hmr LEFT_CONTROL F14  &trans    &trans   &kp F4   &kp F5   &kp F6  &kp F10  &kp F11
+&trans  &trans    &kp F13        &kp F12              &kp F11                &trans    &trans   &kp F1   &kp F2   &kp F3  &kp F11  &trans
+                                 &trans               &trans                 &trans    &kp F10  &kp F11  &kp F12
             >;
         };
 
@@ -115,7 +116,7 @@
 &kp ESCAPE    &kp TAB       &kp Q  &kp W       &kp E  &kp R        &trans  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL     &kp CAPSLOCK  &kp A  &kp S       &kp D  &kp F        &trans  &trans  &trans  &trans  &trans  &trans
 &kp LEFT_ALT  &kp LSHIFT    &kp Z  &kp X       &kp C  &kp V        &trans  &trans  &trans  &trans  &trans  &trans
-                                   &kp ESCAPE  &sl 6  &kp SPACE    &trans  &trans  &to 7
+                                   &kp ESCAPE  &mo 6  &kp SPACE    &trans  &trans  &to 7
             >;
         };
 
